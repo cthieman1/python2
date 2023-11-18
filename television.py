@@ -13,12 +13,20 @@ class Television():
 
 
     def power(self):
+        """
+        inverts the power status of the tv when run
+        """
         if self.__status == False:
             self.__status = True
         else:
             self.__status = False
 
+        return self.__status
+
     def mute(self):
+        """
+        inverts the state of mute when run
+        """
         if self.__status == True:
 
             if self.__muted == False:
@@ -27,13 +35,20 @@ class Television():
                 self.__muted = False
 
     def channel_up(self):
+        """
+        Lowers the channel by 1, wraps around if below minimum
+        """
         if self.__status == True:
 
             self.__channel += 1
             if self.__channel > self.MAX_CHANNEL:
                 self.__channel = self.MIN_CHANNEL
 
+
     def channel_down(self):
+        """
+        Lowers the channel by 1, wraps around if below minimum
+        """
         if self.__status == True:
 
             self.__channel -= 1
@@ -42,6 +57,9 @@ class Television():
 
 
     def volume_up(self):
+        """
+        lowers the volume by 1 and unmutes if neccessary
+        """
         if self.__status == True:
 
             if self.__muted == True:
@@ -51,6 +69,9 @@ class Television():
                 self.__volume += 1
 
     def volume_down(self):
+        """
+        lowers the volume by 1 and unmutes if neccessary
+        """
         if self.__status == True:
 
             if self.__muted == True:
@@ -60,7 +81,11 @@ class Television():
                 self.__volume -= 1
 
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """
+        Used to display the current state of the tv
+        :return: status sting
+        """
         if self.__muted == False:
             status = f'Power = {self.__status}, Channel = {self.__channel}, Volume = {self.__volume}'
         else:
