@@ -1,6 +1,5 @@
 class Television():
 
-    print('hello')
     def __init__(self):
         self.MIN_VOLUME = 0
         self.MAX_VOLUME = 2
